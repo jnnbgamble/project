@@ -1,6 +1,6 @@
 # Final Project
 
-**What is the question you hope to answer?**
+**What is the question you hope to answer?** <br>
 I want to be able to predict a politician's social media behavior based on their congressional voting record, sponsorship of bills, and committees they may be a part of. By "social media behavior" I mean things like: 
 * The positivity/negativity of their tweets (categorical) 
 * The percentage of their tweets that are heavily partisan
