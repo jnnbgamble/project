@@ -11,6 +11,10 @@ all_industry_codes = all_industry_codes.set_index('Catorder')
 #List of all congressional committees
 all_committee_codes = pd.read_csv('data/all_committees.txt', sep='\t')
 
+#
+all_congress_ids = pd.read_csv('data/legislators-current.csv')
+all_congress_ids = all_congress_ids[['last_name', 'first_name', 'bioguide_id', 'opensecrets_id', 'govtrack_id']]
+
 
 def getCommitteeData(congress_year, committee_code, industry_code):
     #Build API query string
@@ -58,22 +62,53 @@ def getCommitteeData(congress_year, committee_code, industry_code):
     return committee, all_industry_codes.get_value(industry_code, 'Industry')
 
 
-#Get data for many committees
-#for i in range(len(all_industry_codes)):
-#    print i
-
-def getCongresspersonBills(congress_year, industry):
-    bill_query = 'https://www.govtrack.us/api/v2/bill?q=' + industry + '&congress=' + str(congress_year) + '&limit=500'
-    
+#This gives you your list of bills that match the search term
+def getCongresspersonBills(congress_year, industry): #CHANGE LIMIT LATER
+    bill_query = 'https://www.govtrack.us/api/v2/bill?q=' + industry + '&congress=' + str(congress_year) + '&limit=4'
     print bill_query
-    #Get all bills for that search query
-    #Build up list of all bill IDs
-    #Get cosponsors of bills 
+    r2 = requests.get(bill_query)
+    output = r2.json()
     
+    bill_id_list = []
+    bill_sponsors_cosponsors = {}
+    id_to_scs = {}
     
-x, y = getCommitteeData(114, 'HAGR', 'A06')
-getCongresspersonBills(114, 'Dairy')
+    #Builds a list of bill IDs for the proper query string
+    for x in range(len(output['objects'])): 
+        bill_id_list.append(output['objects'][x]['id'])
+    #print bill_id_list
+    
+    #For each bill ID, builds a list of sponsors and cosponsors 
+    for x in range(len(bill_id_list)):
+        bill_query = 'https://www.govtrack.us/api/v2/bill/' + str(bill_id_list[x])
+        r3 = requests.get(bill_query)
+        relevant_bills = r3.json()
+        
+        sponsor = relevant_bills['sponsor']['bioguideid']
+        cosponsors = []
+        for y in range(len(relevant_bills['cosponsors'])):
+            cosponsors.append(relevant_bills['cosponsors'][y]['bioguideid'])
+        #print str(cosponsors)
+        #Builds bill ID : sponsors & cosponsors dictionary
+        bill_sponsors_cosponsors['sponsor'] = sponsor
+        bill_sponsors_cosponsors['cosponsors'] = cosponsors
+        #print 'bill_sponsors_cosponsors: ' + str(bill_sponsors_cosponsors)
+        #print 'ID to SCS : ' + str(id_to_scs)
+        id_to_scs[str(bill_id_list[x])] = bill_sponsors_cosponsors
+        #print x
+        #print bill_sponsors_cosponsors
+        print id_to_scs[str(bill_id_list[x])]
+
+    for x in range(len(bill_id_list)):
+        id_to_scs[]           
+    return id_to_scs
 
 
-#Return bills in this congress for all members of that committee
+#Describtion
+#def fundingPersonComparison():
+#sns.heatmap()
 
+
+test_dict = getCongresspersonBills(114, 'Dairy')    
+committee_df, industry = getCommitteeData(114, 'HAGR', 'A06')
+print test_dict
