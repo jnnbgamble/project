@@ -12,7 +12,7 @@ all_industry_codes = all_industry_codes.set_index('Catorder')
 all_committee_codes = pd.read_csv('data/all_committees.txt', sep='\t')
 
 #
-all_congress_ids = pd.read_csv('data/legislators-current.csv')
+all_congress_ids = pd.read_csv('data/legislators-current', sep='\t')
 all_congress_ids = all_congress_ids[['last_name', 'first_name', 'bioguide_id', 'opensecrets_id', 'govtrack_id']]
 
 
@@ -71,11 +71,14 @@ def getCongresspersonBills(congress_year, industry): #CHANGE LIMIT LATER
     
     bill_id_list = []
     bill_sponsors_cosponsors = {}
+    bill_scs = []
     id_to_scs = {}
     
     #Builds a list of bill IDs for the proper query string
-    for x in range(len(output['objects'])): 
-        bill_id_list.append(output['objects'][x]['id'])
+    for a in range(len(output['objects'])): 
+        bill_id_list.append(output['objects'][a]['id'])
+        #id_to_scs[str(output['objects'][a]['id'])] = ''
+    #print id_to_scs
     #print bill_id_list
     
     #For each bill ID, builds a list of sponsors and cosponsors 
@@ -88,19 +91,19 @@ def getCongresspersonBills(congress_year, industry): #CHANGE LIMIT LATER
         cosponsors = []
         for y in range(len(relevant_bills['cosponsors'])):
             cosponsors.append(relevant_bills['cosponsors'][y]['bioguideid'])
-        #print str(cosponsors)
+
         #Builds bill ID : sponsors & cosponsors dictionary
         bill_sponsors_cosponsors['sponsor'] = sponsor
         bill_sponsors_cosponsors['cosponsors'] = cosponsors
-        #print 'bill_sponsors_cosponsors: ' + str(bill_sponsors_cosponsors)
-        #print 'ID to SCS : ' + str(id_to_scs)
-        id_to_scs[str(bill_id_list[x])] = bill_sponsors_cosponsors
-        #print x
-        #print bill_sponsors_cosponsors
-        print id_to_scs[str(bill_id_list[x])]
+        id_to_scs[bill_id_list[x]] = x
+        print bill_sponsors_cosponsors
+    print id_to_scs
+        
 
-    for x in range(len(bill_id_list)):
-        id_to_scs[]           
+    #for z in range(len(bill_id_list)):
+        
+        #bill_id_list[z] = bill_sponsors_cosponsors[z]
+        
     return id_to_scs
 
 
@@ -111,4 +114,4 @@ def getCongresspersonBills(congress_year, industry): #CHANGE LIMIT LATER
 
 test_dict = getCongresspersonBills(114, 'Dairy')    
 committee_df, industry = getCommitteeData(114, 'HAGR', 'A06')
-print test_dict
+#print test_dict
