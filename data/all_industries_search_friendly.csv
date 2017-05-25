@@ -1,0 +1,104 @@
+Catorder,Industry,Altered_Industry
+A11,Misc Agriculture,Agriculture
+A01,Crop Production & Basic Processing,Crop
+A02,Tobacco,Tobacco
+A04,Dairy,Dairy
+A05,Poultry & Eggs,Poultry
+A06,Livestock,Livestock
+A07,Agricultural Services/Products,Agriculture Services
+A10,Forestry & Forest Products,Forestry
+C01,General Contractors,Contractors
+C02,Home Builders,home Builders
+C03,Special Trade Contractors,Trade Contractors
+C04,Construction Services,Construction Services
+C05,Building Materials & Equipment,Building Materials
+B00,Misc Communications/Electronics,Communication Electronics
+B01,Printing & Publishing,Printing
+B02,TV/Movies/Music,TV
+B09,Telecom Services,Telecom
+B08,Telephone Utilities,Telephone
+B12,Electronics Mfg & Equip,Electronics Manufacturing
+B13,Internet,Internet
+D03,Misc Defense,Defense
+D01,Defense Aerospace,Defense Aerospace
+D02,Defense Electronics,Defense Electronics
+E07,Misc Energy,Energy
+E01,Oil & Gas,Oil
+E04,Mining,Mining
+E08,Electric Utilities,Electric Utilities
+E09,Environmental Svcs/Equipment,Environment Equipment
+E10,Waste Management,Waste Management
+E11,Fisheries & Wildlife,Fisheries
+F13,Misc Finance,Finance
+F03,Commercial Banks,Banks
+F04,Savings & Loans,Savings
+F05,Credit Unions,Credit Union
+F06,Finance/Credit Companies,Finance
+F07,Securities & Investment,Securities
+F09,Insurance,Insurance
+F10,Real Estate,Real Estate
+F11,Accountants,Accountants
+N12,Misc Business,Business
+N00,Business Associations,Business
+A09,Food Processing & Sales,Food Processing
+N01,Food & Beverage,Food
+N02,"Beer, Wine & Liquor",Liquor
+N09,Marijuana,Marijuana
+N03,Retail Sales,Retail Sales
+N04,Misc Services,Services
+N05,Business Services,Business Services
+N06,Recreation/Live Entertainment,Recreation
+N07,Casinos/Gambling,Casino
+H05,Misc Health,Health
+H01,Health Professionals,Health Professional
+H02,Hospitals/Nursing Homes,Hospital
+H03,Health Services/HMOs,Health Services
+H04,Pharmaceuticals/Health Products,Pharmaceuticals
+W04,Education,Education
+W07,Other,Other
+Q10,Misc Issues,Issues
+Q01,Republican/Conservative,Miscellaneous
+Q02,Democratic/Liberal,Liberal
+Q03,Leadership PACs,PAC
+Q04,Foreign & Defense Policy,Foreign Policy
+Q05,Pro-Israel,Pro Israel
+Q12,Gun Control,Gun Control
+Q13,Gun Rights,Gun Rights
+Q09,Human Rights,Human Rights
+Q14,Abortion Policy/Anti-Abortion,Anti Abortion
+Q15,Abortion Policy/Pro-Abortion Rights,Pro Abortion
+Q08,Women's Issues,Womens Issues
+Q11,Environment,Environme
+K01,Lawyers/Law Firms,Lawyers
+K02,Lobbyists,Lobbyists
+P05,Misc Unions,Unions
+P04,Public Sector Unions,Public Sector Union
+P01,Building Trade Unions,Building Trade Unions
+P02,Industrial Unions,Industrial Unions
+P03,Transportation Unions,Transportation Unions
+N15,Misc Manufacturing & Distributing,Manufacturing 
+N13,Chemical & Related Manufacturing,Chemicals
+N14,Steel Production,Steel
+N16,Textiles,Textile
+M06,Misc Transport,Transport
+M01,Air Transport,Air Transport
+M02,Automotive,Automotive
+M03,Trucking,Truck
+M04,Railroads,Railroads
+M05,Sea Transport,Sea Transport
+N08,Lodging/Tourism,Tourism
+W06,Retired,Retired
+W03,Civil Servants/Public Officials,Civil Servants
+W02,Non-Profit Institutions,Non profit
+W05,Clergy & Religious Organizations,Religion
+Y00,Unknown,Unknown
+Y01,Homemakers/Non-income earners,Home makers
+Y02,No Employer Listed or Found,No employer
+Y03,Generic Occupation/Category Unknown,Generic Occupation
+Y04,Employer Listed/Category Unknown,Employer Listed
+Q16,Candidate Committees,Candidate Committees
+Z04,Joint Candidate Cmte,Joint Candidate Committee
+Z02,Party Committees,Party Committee
+Z07,Candidate Self-finance,Candidate Self finance 
+Z08,Party Committee Transfer,Party Committee Transfer
+Z09,Non-contribution,Non contribution
